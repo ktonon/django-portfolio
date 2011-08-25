@@ -1,0 +1,11 @@
+{% include "portfolio/dates_fragment.html" %}
+<h2>
+  {% if should_link %}<a href="{% url project_detail project.slug %}" title="View details">{% endif %}
+    {{ project }}
+  {% if should_link %}</a>{% endif %}
+</h2>
+<ul class="skills">
+  {% for skill in project.skills.all %}
+  <li><a href="{% url skill_detail skill.slug %}">{{ skill }}</a></li>
+  {% endfor %}
+</ul>

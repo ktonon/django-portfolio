@@ -1,10 +1,11 @@
-<ul id="categories">
+<h4>Portfolio Categories</h4>
+<ul class="categories">
   {% for category in category_list %}
   {% ifequal category.pk selected.pk %}
   <li class="selected"><a href="{% url category_detail category.slug %}">{{ category }}</a></li>
   {% else %}
   <li><a href="{% url category_detail category.slug %}">{{ category }}</a></li>
   {% endifequal %}
-  
+
   {% endfor %}
-</ul>
+</ul>  
