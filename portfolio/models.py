@@ -14,7 +14,7 @@ class Project(models.Model):
     skills = models.ManyToManyField('Skill')
 
     class Meta:
-        ordering = ['-start_date', '-end_date', ]
+        ordering = ['-end_date']
 
     def __unicode__(self):
         return self.name
@@ -22,6 +22,7 @@ class Project(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('portfolio.views.project_detail', (), {'slug': str(self.slug), })
+
 
 class Skill(models.Model):
     name = models.CharField(max_length=50)
@@ -37,6 +38,7 @@ class Skill(models.Model):
     def get_absolute_url(self):
         return ('portfolio.views.skill_detail', (), {'slug': str(self.slug), })
 
+
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, unique=True)
@@ -44,6 +46,7 @@ class Category(models.Model):
 
     class Meta:
         ordering = ["position"]
+        verbose_name_plural = 'Categories'
 
     def __unicode__(self):
         return self.name
@@ -51,6 +54,7 @@ class Category(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('portfolio.views.category_detail', (), {'slug': str(self.slug), })
+
 
 class ProjectFile(models.Model):
     project = models.ForeignKey('Project')
@@ -62,6 +66,7 @@ class ProjectFile(models.Model):
 
     def get_absolute_url(self):
         return self.file.url
+
 
 class ProjectImage(models.Model):
     project = models.ForeignKey('Project')
