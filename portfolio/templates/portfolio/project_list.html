@@ -2,17 +2,11 @@
 
 {% block title %}{{ block.super }}: {{ category_list.0.name }} Projects {% endblock %}
 
-{% block groups %}
-{% with category_list.0 as selected %}
+{% block portfolio_nav %}
 {% include "portfolio/categories_fragment.html" %}
-{% endwith %}
 {% include "portfolio/skills_fragment.html" %}
 {% endblock %}
 
-{% block projects %}
-{% with category_list.0 as category %}
-{% with category.project_set.all as projects %}
+{% block portfolio_projects %}
 {% include "portfolio/projects_fragment.html" %}
-{% endwith %}
-{% endwith %}
 {% endblock %}

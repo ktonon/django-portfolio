@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from views import project_detail, category_detail, category_list, skill_detail
+from views import *
 
 admin.autodiscover()
 
@@ -9,8 +9,8 @@ urlpatterns = patterns(
 
     url(
         regex = r'^$',
-        view = category_list,
-        name = 'category_list',
+        view = project_list,
+        name = 'project_list',
         ),
 
     url(
