@@ -8,12 +8,6 @@
   <h3 class="url"><a href="{{ project.url }}">{{ project.url }}</a></h3>
   {% endif %}
   
-  <ul class="skills">
-    {% for skill in project.skills.all %}
-    <li><a href="{% url skill_detail skill.slug %}">{{ skill }}</a></li>
-    {% endfor %}
-  </ul>
-
   {% with project.projectimage_set.all as images %}
   {% if images %}
   <ul class="slide-show">
