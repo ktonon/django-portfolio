@@ -1,4 +1,4 @@
-{% load portfolio %}
+{% load portfolio markup %}
 <ul class="project-list">
   {% for project in projects.all %}
   <li class="project">
@@ -8,7 +8,7 @@
         <a href="{% url project_detail project.slug %}" title="View details">
           {% image_for_project project %}
         </a>
-        {{ project.short_description|safe }}
+        {{ project.short_description|markdown }}
       </div>
     </div>
   </li>
